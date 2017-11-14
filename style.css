@@ -1,0 +1,21 @@
+    footer {
+      text-align: right;
+    }
+    footer,h1, figcaption {
+      font-family: "Segoe UI",Arial,sans-serif;
+    }
+    figure {
+/*    position: relative; */
+      top: 0px;
+      left: 0px;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgba(225, 232, 237, 0.75);
+      border-image: initial;
+      border-radius: 4px 4px 0px 0px;
+      margin-bottom: 50px
+    }
