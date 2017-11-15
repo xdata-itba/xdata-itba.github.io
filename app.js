@@ -6,7 +6,8 @@ d3.tsv( url, function(data) {
     .attr("href",function(d,i) {return d.url;})
       .append("img")
       .attr("src",function(d,i) {return d.imagen;})
+      .attr("tooltip", function(d,i) {return d.resumen;})
       .attr("width",500);
   figures.append("figcaption")
-    .html(function(d,i) {return  "<div align='left'>" + d.fecha + "</div><b>" + d.titulo + "</b>";});
+    .html(function(d,i) {return  "<div align='left'>" + d.fecha + "</div><a href='" + d.url + "'>" + d.titulo + "</a>";});
 });
