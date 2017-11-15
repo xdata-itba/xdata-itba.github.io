@@ -9,5 +9,5 @@ d3.tsv( url, function(data) {
       .attr("tooltip", function(d,i) {return d.resumen;})
       .attr("width",500);
   figures.append("figcaption")
-    .html(function(d,i) {return  "<div align='left'>" + d.fecha + "</div><a href='" + d.url + "'>" + d.titulo + "</a>";});
+    .html(function(d,i) {return  "<div>" + d.fecha + "</div><a href='" + d.url + "'>" + d.titulo + "</a>";});
 });
