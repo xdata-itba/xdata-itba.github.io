@@ -14,7 +14,7 @@ var limit   = 200; // cantidad de palabras a recuperar
 var d_from  = today; // fecha desde formato 'yyyy-mm-dd'
 var d_to    = today; // fecha hasta formato 'yyyy-mm-dd'
 var search  = "";
-var url     = "http://pf2.it.itba.edu.ar/api/nube-de-palabras?d_from="+d_from+"&d_to="+d_to+"&words="+search+"&limit="+limit;
+var url     = "//pf2.it.itba.edu.ar/api/nube-de-palabras?d_from="+d_from+"&d_to="+d_to+"&words="+search+"&limit="+limit;
 var font    = "Montserrat";
 var datos;
 
