@@ -1,0 +1,10 @@
+a:link { 
+  font-weight: normal;
+  text-decoration: none;
+}    
+
+a:hover, a:focus {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
