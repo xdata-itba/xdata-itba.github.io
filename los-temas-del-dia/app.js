@@ -60,32 +60,37 @@ function palabra(w) {
 
 var scale = d3.scale.linear();
 
-d3.json(url, function(data) {
-  if (data.status == "success") {
-    datos = data.data;
-    datos.forEach(function(d) {
-      d.text = d.word;
-      d.size = d.word_count;
-    });
+d3.json(url, function(error, data) {
+  if (error) {
+	  console.warn(error);
+  }
+  else {
+    if (data.status == "success") {
+      datos = data.data;
+      datos.forEach(function(d) {
+        d.text = d.word;
+        d.size = d.word_count;
+      });
 
-    scale
-      .domain([1, d3.max(datos.map(function(d){return d.size;})) ])
-      .range([2,50]);
+      scale
+        .domain([1, d3.max(datos.map(function(d){return d.size;})) ])
+        .range([2,50]);
 
-    d3.layout.cloud()
-      .size([width, height])
-      .words(datos)
-      .rotate(function() { return ~~(Math.random() * 2) * 90; })
-      .font( font )
-      .fontSize(function(d) { return scale(d.word_count); })
-      // .on("word", palabra)
-      .on("end", draw)
-      .start();
+      d3.layout.cloud()
+        .size([width, height])
+        .words(datos)
+        .rotate(function() { return ~~(Math.random() * 2) * 90; })
+        .font( font )
+        .fontSize(function(d) { return scale(d.word_count); })
+        // .on("word", palabra)
+        .on("end", draw)
+        .start();
 
-    var svg = document.getElementsByTagName("svg")[0];
-    var bbox = svg.getBBox();
-    var viewBox = [bbox.x, bbox.y, bbox.width, bbox.height].join(" ");
-    svg.setAttribute("viewBox", viewBox);
+      var svg = document.getElementsByTagName("svg")[0];
+      var bbox = svg.getBBox();
+      var viewBox = [bbox.x, bbox.y, bbox.width, bbox.height].join(" ");
+      svg.setAttribute("viewBox", viewBox);
 
+    }
   }
 });
